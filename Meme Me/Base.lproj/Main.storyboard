@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,77 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7mi-bS-IaA">
+                                <rect key="frame" x="140" y="140" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="Ao2-as-H5N"/>
+                                    <constraint firstAttribute="width" secondItem="7mi-bS-IaA" secondAttribute="height" multiplier="1:1" id="ZVW-Cc-Xs1"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLK-DT-rnj">
+                                <rect key="frame" x="140" y="205" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGe-Kk-8Gd">
+                                <rect key="frame" x="140" y="364" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-De-MOD">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Pick" id="QMa-CX-lmb">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="Q0i-5B-6SI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Camera" id="S3Q-1O-keW">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="Leh-rC-QJg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CGe-Kk-8Gd" firstAttribute="centerX" secondItem="7mi-bS-IaA" secondAttribute="centerX" id="0U3-lJ-Nna"/>
+                            <constraint firstItem="dLK-DT-rnj" firstAttribute="centerX" secondItem="7mi-bS-IaA" secondAttribute="centerX" id="3VI-V2-EtC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uCG-De-MOD" secondAttribute="bottom" id="EHg-JZ-hK2"/>
+                            <constraint firstItem="7mi-bS-IaA" firstAttribute="top" secondItem="dLK-DT-rnj" secondAttribute="bottom" constant="-95" id="GhT-ep-pSl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uCG-De-MOD" secondAttribute="trailing" constant="-16" id="OFM-lU-w3u"/>
+                            <constraint firstAttribute="centerY" secondItem="7mi-bS-IaA" secondAttribute="centerY" id="X7k-3a-k9k"/>
+                            <constraint firstItem="uCG-De-MOD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="kpq-pP-4DN"/>
+                            <constraint firstAttribute="centerX" secondItem="7mi-bS-IaA" secondAttribute="centerX" id="vsy-tX-2Fp"/>
+                            <constraint firstItem="CGe-Kk-8Gd" firstAttribute="top" secondItem="7mi-bS-IaA" secondAttribute="bottom" constant="-96" id="zFQ-PZ-Jfd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OFM-lU-w3u"/>
+                                <exclude reference="kpq-pP-4DN"/>
+                                <exclude reference="EHg-JZ-hK2"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="OFM-lU-w3u"/>
+                                <include reference="kpq-pP-4DN"/>
+                                <include reference="EHg-JZ-hK2"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="bottomText" destination="CGe-Kk-8Gd" id="Yfr-rz-FbA"/>
+                        <outlet property="cameraButton" destination="S3Q-1O-keW" id="OTQ-7Z-pqs"/>
+                        <outlet property="pickedImage" destination="7mi-bS-IaA" id="My8-lE-Pit"/>
+                        <outlet property="topText" destination="dLK-DT-rnj" id="zP1-B0-kNQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="439.5" y="293"/>
         </scene>
     </scenes>
 </document>
