@@ -125,13 +125,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    @IBAction func viewMeme(sender: AnyObject) {
-
-        
-        var viewVC = storyboard?.instantiateViewControllerWithIdentifier("MemeCollectionViewController") as! MemeCollectionViewController
-        viewVC.memeList = (UIApplication.sharedApplication().delegate as! AppDelegate).memeList
-        self.navigationController?.pushViewController(viewVC, animated: true)
-    }
+//    @IBAction func viewMeme(sender: AnyObject) {
+//
+//        
+//        var viewVC = storyboard?.instantiateViewControllerWithIdentifier("MemeCollectionViewController") as! MemeCollectionViewController
+//        viewVC.memeList = (UIApplication.sharedApplication().delegate as! AppDelegate).memeList
+//        self.navigationController?.pushViewController(viewVC, animated: true)
+//    }
     
     @IBAction func shareMeme(sender: AnyObject) {
     
