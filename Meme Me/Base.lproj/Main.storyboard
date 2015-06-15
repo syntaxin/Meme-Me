@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x9I-iR-wMy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -93,7 +94,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="p4q-r6-434"/>
-                                    <barButtonItem systemItem="organize" id="bkP-TK-CE2"/>
+                                    <barButtonItem systemItem="organize" id="bkP-TK-CE2">
+                                        <connections>
+                                            <action selector="viewMeme:" destination="BYZ-38-t0r" id="JTF-Oc-KVb"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0aH-9O-m62"/>
                                     <barButtonItem systemItem="action" id="jlQ-EE-X0C">
                                         <connections>
@@ -271,9 +276,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="64" width="568" height="287"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="rjv-8b-Ipu" id="Msc-a6-gcJ"/>
                                     <outlet property="delegate" destination="rjv-8b-Ipu" id="Zen-GF-Jiv"/>
@@ -292,10 +294,10 @@
                                 <exclude reference="VcT-nJ-J4o"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="UOb-5H-0Jx"/>
                                 <exclude reference="8CS-Zb-qeK"/>
                                 <exclude reference="RcH-yW-AKe"/>
                                 <exclude reference="yXp-QP-FA7"/>
-                                <exclude reference="UOb-5H-0Jx"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -303,10 +305,10 @@
                                 <include reference="VcT-nJ-J4o"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="UOb-5H-0Jx"/>
                                 <include reference="8CS-Zb-qeK"/>
                                 <include reference="RcH-yW-AKe"/>
                                 <include reference="yXp-QP-FA7"/>
-                                <include reference="UOb-5H-0Jx"/>
                             </mask>
                         </variation>
                     </view>
