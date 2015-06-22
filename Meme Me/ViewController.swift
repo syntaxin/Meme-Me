@@ -9,10 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+
+    
+    // Declare all the items needed for creating this MemeMe application
     
     var selectedImage: UIImage!
-    
-    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var viewButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -21,17 +22,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var pickedImage: UIImageView!
     @IBOutlet weak var memeToolbar: UIToolbar!
     
+    // Set the font for the meme lines
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSBackgroundColorAttributeName : UIColor.clearColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
+        NSFontAttributeName : UIFont(name: "Impact", size: 35)!,
         NSStrokeWidthAttributeName : -3
     ]
     
     
-    
-    
+    //Get the View ready
     override func viewWillAppear(animated: Bool) {
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -41,7 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-
+    //When leaving the view, stop listening for keyboard events
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardShowNotifications()
@@ -49,11 +50,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         memeToolbar.hidden = true
     }
     
+    
+    //Set the state for the starting point of the application
+    
     override func viewDidLoad() {
         
-        
         self.viewButton.enabled = false
-        
+        self.shareButton.enabled = false
         self.topText.delegate = self
         self.bottomText.delegate = self
         topText.hidden = true
@@ -70,6 +73,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    //Pick an image for use
     
     @IBAction func pickAnImage(sender: AnyObject) {
         
@@ -77,11 +81,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(imagePicker, animated: true, completion: nil)
-        
-        self.viewButton.enabled = true
-        
+
     }
     
+    //Take an image for use
     
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
         
@@ -89,20 +92,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
-        
-        self.viewButton.enabled = true
     }
     
-    @IBAction func getMemeImage(sender: AnyObject) {
-        
-        let tempImage = generateMemedImage()
-        pickedImage.image = tempImage
-        
-        topText.hidden = true
-        bottomText.hidden = true
-        
-    }
     
+    
+    //Choosing an image from the image picker
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
         
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -113,37 +107,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)
+        self.shareButton.enabled = true
         topText.hidden = false
         bottomText.hidden = false
+
         
     }
     
+    //Canceling your choice for an image
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
-        
+        self.shareButton.enabled = false
+        topText.hidden = true
+        bottomText.hidden = true
+
+
     }
     
     
-//    @IBAction func viewMeme(sender: AnyObject) {
-//
-//        
-//        var viewVC = storyboard?.instantiateViewControllerWithIdentifier("MemeCollectionViewController") as! MemeCollectionViewController
-//        viewVC.memeList = (UIApplication.sharedApplication().delegate as! AppDelegate).memeList
-//        self.navigationController?.pushViewController(viewVC, animated: true)
-//    }
-    
+    //Share the amazing Meme that was just created
     @IBAction func shareMeme(sender: AnyObject) {
     
         let imageToShare = generateMemedImage()
-        let messageText = "Check out my meme"
+        let messageText = "Check out this amazing meme created by Meme Me"
         let memeToShare = [imageToShare,messageText]
         
         let activityVC = UIActivityViewController(activityItems: memeToShare, applicationActivities: nil)
+        
         activityVC.completionWithItemsHandler = {
             (activity, success, items, error) in
-            println("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
             self.saveMeme()
+            self.viewButton.enabled = true
             activityVC.dismissViewControllerAnimated(true, completion: nil)
             
         }
@@ -167,11 +162,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage
     {
-        //hide stuff
+        //hide toolbar
         memeToolbar.hidden = true
         
-        
-        
+
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,

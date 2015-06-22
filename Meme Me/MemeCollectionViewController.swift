@@ -14,6 +14,8 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
     var memeList = [Meme]()
     
     
+    
+    //Prepare the view to be rendered
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
@@ -21,11 +23,11 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         
+        //Use the global memeList
         memeList = appDelegate.memeList
-        println(memeList.count)
     }
     
-    
+    //Implement the collection view
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memeList.count
     }
@@ -36,9 +38,7 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
         let meme = self.memeList[indexPath.row]
         
         // Set the name and image
-        //cell.topText.text = meme.topLine
         cell.memeImageView.image = meme.memeImage
-        //cell.bottomText.text = meme.bottomLine
         
         return cell
     }

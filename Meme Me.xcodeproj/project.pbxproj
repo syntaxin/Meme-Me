@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49325A871B1430F60002BDE0 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49325A861B1430F60002BDE0 /* MemeCollectionViewController.swift */; };
 		49325A891B1432760002BDE0 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49325A881B1432760002BDE0 /* MemeCollectionViewCell.swift */; };
+		49E21C061B37C2C500494756 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49E21C051B37C2BE00494756 /* Impact.ttf */; };
 		49E449681B0068B600D0BF23 /* MemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E449671B0068B600D0BF23 /* MemeListViewController.swift */; };
 		49E4496A1B0077E300D0BF23 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E449691B0077E300D0BF23 /* MemeDetailViewController.swift */; };
 		49E9EDCF1AEDC44500C178E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E9EDCE1AEDC44500C178E8 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		49325A861B1430F60002BDE0 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
 		49325A881B1432760002BDE0 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		49E21C051B37C2BE00494756 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 		49E449671B0068B600D0BF23 /* MemeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeListViewController.swift; sourceTree = "<group>"; };
 		49E449691B0077E300D0BF23 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 		49E9EDC91AEDC44500C178E8 /* Meme Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 		49E9EDCC1AEDC44500C178E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49E21C051B37C2BE00494756 /* Impact.ttf */,
 				49E9EDCD1AEDC44500C178E8 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E21C061B37C2C500494756 /* Impact.ttf in Resources */,
 				49E9EDD41AEDC44500C178E8 /* Main.storyboard in Resources */,
 				49E9EDD91AEDC44500C178E8 /* LaunchScreen.xib in Resources */,
 				49E9EDD61AEDC44500C178E8 /* Images.xcassets in Resources */,
@@ -362,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Meme Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Meme Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

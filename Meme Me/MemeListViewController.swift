@@ -14,6 +14,7 @@ class MemeListViewController: UIViewController, UITableViewDataSource {
     var memeList = [Meme]()
     
 
+    //Prepare the view to be rendered
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
@@ -24,9 +25,8 @@ class MemeListViewController: UIViewController, UITableViewDataSource {
         memeList = appDelegate.memeList
     }
     
-    
+    //Implement the table view
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //println(self.memeList.count)
         return self.memeList.count
     }
   
