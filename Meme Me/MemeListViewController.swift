@@ -45,8 +45,6 @@ class MemeListViewController: UIViewController, UITableViewDataSource {
             cell?.detailTextLabel?.text = memeRow.bottomLine
             cell?.imageView?.image = memeRow.memeImage
             
-            println(memeRow.topLine)
-            println(memeRow.bottomLine)
         }
         
         
