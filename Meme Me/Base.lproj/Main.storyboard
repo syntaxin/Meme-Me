@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x9I-iR-wMy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fzo-aV-CiH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="BP0-sE-wfx">
-            <objects>
-                <navigationController id="x9I-iR-wMy" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="74X-6G-tnJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jdg-UD-adh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WMM-k4-fhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-807" y="293"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VtN-7u-kyI">
             <objects>
-                <tabBarController id="fzo-aV-CiH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="InitialTabController" id="fzo-aV-CiH" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ouT-kq-pE1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -41,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="596" y="292.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Meme Creator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_Me" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,12 +77,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="p4q-r6-434"/>
-                                    <barButtonItem systemItem="organize" id="bkP-TK-CE2">
-                                        <connections>
-                                            <segue destination="fzo-aV-CiH" kind="show" id="Vgi-yU-Egd"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0aH-9O-m62"/>
                                     <barButtonItem systemItem="action" id="jlQ-EE-X0C">
                                         <connections>
                                             <action selector="shareMeme:" destination="BYZ-38-t0r" id="7GI-WJ-WgT"/>
@@ -163,7 +140,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="5Bh-rP-M7p"/>
+                    <navigationItem key="navigationItem" title="Meme Creator" id="9hY-GP-Phs"/>
                     <connections>
                         <outlet property="bottomText" destination="CGe-Kk-8Gd" id="Yfr-rz-FbA"/>
                         <outlet property="cameraButton" destination="S3Q-1O-keW" id="OTQ-7Z-pqs"/>
@@ -171,12 +148,11 @@
                         <outlet property="pickedImage" destination="7mi-bS-IaA" id="My8-lE-Pit"/>
                         <outlet property="shareButton" destination="jlQ-EE-X0C" id="D6W-lW-QfD"/>
                         <outlet property="topText" destination="dLK-DT-rnj" id="zP1-B0-kNQ"/>
-                        <outlet property="viewButton" destination="bkP-TK-CE2" id="7ZT-rh-F59"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="292.5"/>
+            <point key="canvasLocation" x="2787" y="613.5"/>
         </scene>
         <!--List-->
         <scene sceneID="Cb0-Iw-WS7">
@@ -237,7 +213,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="List View" image="List" id="H3s-mi-e75"/>
-                    <navigationItem key="navigationItem" id="mQy-7D-RfF"/>
+                    <navigationItem key="navigationItem" title="Sent Memes Collection" id="8x2-ee-bOV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zxl-j9-qzx">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="fdx-gE-ZKg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqd-ND-GfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,21 +273,36 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-Uf-Y2l">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="heightClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="15" y="2" width="106" height="98"/>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="TAX-Uf-Y2l" firstAttribute="top" secondItem="vh7-cE-EFZ" secondAttribute="topMargin" constant="-6" id="0iI-RD-yN8"/>
+                                            <constraint firstItem="TAX-Uf-Y2l" firstAttribute="centerX" secondItem="vh7-cE-EFZ" secondAttribute="centerX" id="8Sg-wi-siC"/>
+                                            <constraint firstItem="TAX-Uf-Y2l" firstAttribute="leading" secondItem="vh7-cE-EFZ" secondAttribute="leadingMargin" constant="7" id="Meg-Nb-ZR3"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="TAX-Uf-Y2l" secondAttribute="bottom" constant="-7" id="XfU-2t-FlF"/>
+                                        </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="TAX-Uf-Y2l"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="0iI-RD-yN8"/>
+                                                <exclude reference="8Sg-wi-siC"/>
+                                                <exclude reference="Meg-Nb-ZR3"/>
+                                                <exclude reference="XfU-2t-FlF"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact">
                                             <mask key="subviews">
                                                 <include reference="TAX-Uf-Y2l"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="0iI-RD-yN8"/>
+                                                <include reference="8Sg-wi-siC"/>
+                                                <include reference="Meg-Nb-ZR3"/>
+                                                <include reference="XfU-2t-FlF"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -321,20 +318,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VcT-nJ-J4o" firstAttribute="top" secondItem="wgj-4S-Zvm" secondAttribute="bottom" id="8CS-Zb-qeK"/>
-                            <constraint firstItem="VcT-nJ-J4o" firstAttribute="leading" secondItem="chj-4N-Zyl" secondAttribute="leadingMargin" id="RcH-yW-AKe"/>
-                            <constraint firstItem="NSl-Ch-69Q" firstAttribute="top" secondItem="VcT-nJ-J4o" secondAttribute="bottom" id="UOb-5H-0Jx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VcT-nJ-J4o" secondAttribute="trailing" id="yXp-QP-FA7"/>
+                            <constraint firstItem="VcT-nJ-J4o" firstAttribute="trailing" secondItem="chj-4N-Zyl" secondAttribute="trailingMargin" id="EER-1Q-RqY"/>
+                            <constraint firstItem="VcT-nJ-J4o" firstAttribute="leading" secondItem="chj-4N-Zyl" secondAttribute="leadingMargin" id="MiZ-em-Wwh"/>
+                            <constraint firstItem="VcT-nJ-J4o" firstAttribute="bottom" secondItem="NSl-Ch-69Q" secondAttribute="top" id="ZLS-jt-qjb"/>
+                            <constraint firstItem="VcT-nJ-J4o" firstAttribute="top" secondItem="wgj-4S-Zvm" secondAttribute="bottom" id="reF-Wc-69c"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="VcT-nJ-J4o"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="UOb-5H-0Jx"/>
-                                <exclude reference="8CS-Zb-qeK"/>
-                                <exclude reference="RcH-yW-AKe"/>
-                                <exclude reference="yXp-QP-FA7"/>
+                                <exclude reference="EER-1Q-RqY"/>
+                                <exclude reference="MiZ-em-Wwh"/>
+                                <exclude reference="ZLS-jt-qjb"/>
+                                <exclude reference="reF-Wc-69c"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -342,15 +339,21 @@
                                 <include reference="VcT-nJ-J4o"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="UOb-5H-0Jx"/>
-                                <include reference="8CS-Zb-qeK"/>
-                                <include reference="RcH-yW-AKe"/>
-                                <include reference="yXp-QP-FA7"/>
+                                <include reference="EER-1Q-RqY"/>
+                                <include reference="MiZ-em-Wwh"/>
+                                <include reference="ZLS-jt-qjb"/>
+                                <include reference="reF-Wc-69c"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Grid View" image="Grid" id="mP4-sm-f5i"/>
-                    <navigationItem key="navigationItem" id="kFX-zQ-g7O"/>
+                    <navigationItem key="navigationItem" title="Sent Memes Collection" id="rFy-iQ-r0x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mad-hr-Sol">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="nbc-6w-P5i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7co-gi-GP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,11 +411,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmi-Lt-oup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728" y="355.5"/>
+            <point key="canvasLocation" x="2787" y="-82.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="Grid" width="25" height="25"/>
         <image name="List" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nbc-6w-P5i"/>
+    </inferredMetricsTieBreakers>
 </document>

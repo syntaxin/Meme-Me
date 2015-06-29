@@ -15,7 +15,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var selectedImage: UIImage!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var viewButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
@@ -36,6 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        self.tabBarController?.tabBar.hidden = true
         self.subscribeToKeyboardShowNotifications()
         self.subscribeToKeyboardHideNotifications()
         memeToolbar.hidden = false
@@ -55,7 +55,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         
-        self.viewButton.enabled = false
         self.shareButton.enabled = false
         self.topText.delegate = self
         self.bottomText.delegate = self
@@ -132,14 +131,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imageToShare = generateMemedImage()
         let messageText = "Check out this amazing meme created by Meme Me"
         let memeToShare = [imageToShare,messageText]
-        
         let activityVC = UIActivityViewController(activityItems: memeToShare, applicationActivities: nil)
         
         activityVC.completionWithItemsHandler = {
             (activity, success, items, error) in
-            self.saveMeme()
-            self.viewButton.enabled = true
-            activityVC.dismissViewControllerAnimated(true, completion: nil)
+            
+            if success == false {
+                let savedMemesCollection = self.storyboard!.instantiateViewControllerWithIdentifier("InitialTabController")! as! UITabBarController
+                self.navigationController!.presentViewController(savedMemesCollection, animated: true, completion: nil)
+                activityVC.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+            if success == true {
+                self.saveMeme()
+                let savedMemesCollection = self.storyboard!.instantiateViewControllerWithIdentifier("InitialTabController")! as! UITabBarController
+                self.navigationController!.presentViewController(savedMemesCollection, animated: true, completion: nil)
+                activityVC.dismissViewControllerAnimated(true, completion: nil)
+            }
             
         }
         
@@ -157,6 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         (UIApplication.sharedApplication().delegate as! AppDelegate).memeList.append(memeToSave)
         memeToolbar.hidden = false
         
+        //println( (UIApplication.sharedApplication().delegate as! AppDelegate).memeList.count)
     
     }
     
