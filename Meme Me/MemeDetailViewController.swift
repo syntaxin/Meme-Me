@@ -19,8 +19,8 @@ class MemeDetailViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.memeImage.image = meme.memeImage
-        self.tabBarController?.tabBar.hidden = false
+        memeImage.image = meme.memeImage
+        tabBarController?.tabBar.hidden = true
 
     }
 

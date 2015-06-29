@@ -17,13 +17,4 @@ struct Meme {
     let originalImage: UIImage
     let memeImage: UIImage
 
-    
-    init (topLine:String, bottomLine:String, originalImage: UIImage, memeImage: UIImage){
-        
-        self.topLine = topLine
-        self.bottomLine = bottomLine
-        self.originalImage = originalImage
-        self.memeImage = memeImage
-    }
-
 }
