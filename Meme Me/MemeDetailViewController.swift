@@ -22,6 +22,10 @@ class MemeDetailViewController : UIViewController {
         memeImage.image = meme.memeImage
         tabBarController?.tabBar.hidden = true
 
+        
+        
+        
+        
     }
 
 
